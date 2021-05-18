@@ -24,22 +24,18 @@ public class PersistentLittleBugger {
 	}
 
 	public static int bugger(int num) {
+		int count = 0;
 		if (num > 9) {
 			while (num > 9) {
 				List<Integer> numList = new ArrayList<>();
 				while (num > 0) {
 					numList.add(num % 10);
-					System.out.println();
 					num = num / 10;
 				}
-
 				num = numList.stream().reduce(1, (x, y) -> x * y);
-				System.out.println(num);
-				System.out.println(numList);
+				count++;
 			}
-		} else {
-			num = 0;
 		}
-		return num;
+		return count;
 	}
 }
